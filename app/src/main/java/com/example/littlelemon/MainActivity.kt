@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.littlelemon.ui.theme.LittleLemonTheme
 
@@ -22,11 +23,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    RestaurantName(name = stringResource(id = R.string.title))
                 }
             }
         }
     }
+}
+@Composable
+fun RestaurantName(name: String){
+    Text(text = name)
 }
 
 @Composable
@@ -34,10 +39,20 @@ fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
+//@Preview(showBackground = true)
+//@Composable
+//fun DefaultPreview() {
+//    LittleLemonTheme {
+//        Greeting("Android")
+//    }
+//}
+
+
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun RestaurantNamePreview(){
     LittleLemonTheme {
-        Greeting("Android")
+        RestaurantName(name = stringResource(id = R.string.title))
     }
+
 }
